@@ -1,37 +1,11 @@
-10 9
-1234567890
-!@#$%^&*()
-qwertyuiop
-QWERTYUIOP
-asdfghjkl;
-ASDFGHJKL:
-zxcvbnm,./
-ZXCVBNM<>?
- []{}='"-|
+3 1
+abc
 
-Pascal
-begin
-  reset(input, 'filename.in');
-  rewrite(output, 'filename.out');
-end.
+LanguageA
+a
 
-C
-int main()
-{
-    freopen("filename.in", "r", stdin);
-    freopen("filename.out", "w", stdout);
-}
+LanguageAB
+ab
 
-Java
-import java.io.*;
-import java.util.*;
-public class Main {
-    public static void main(String[] args) throws IOException {
-        Scanner in = new Scanner(new File("filename.in"));
-        PrintWriter out = new PrintWriter("filename.out");
-        //TODO
-        in.close();
-        out.close();
-    }
-}
-
+LanguageB
+b

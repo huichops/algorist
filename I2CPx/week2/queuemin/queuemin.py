@@ -1,23 +1,24 @@
+from collections import deque
+
 with open('queuemin.in', 'r') as input:
   n = input.readline()
-  queue = [None] * int(n)
-  head = 0
-  tail = 0
+  queue = deque([])
+  mins = deque([])
   result = []
-  mins = [999999999]
+
   for command in input:
     inst = command[0]
     if (inst == '+'):
       number = int(command[2:])
-      if (number < mins[-1]): mins.append(number)
-      queue[tail] = number
-      tail += 1
+      queue.append(number)
+      if (not len(mins) or number < mins[-1]): mins.append(number)
     elif (inst == '-'):
-      if (mins[-1] == queue[head]): mins.pop()
-      if (queue[head] < mins[-1]): mins.append(number)
-      head +=1
+      number = queue.popleft()
+      if (number == mins[0]): mins.popleft()
+      if (not len(mins) and len(queue)): mins.append(min(queue))
     else:
       result.append(str(mins[-1]))
+
   with open('queuemin.out', 'w') as output:
     output.write('\n'.join(result))
     output.write('\n')
